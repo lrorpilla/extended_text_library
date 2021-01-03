@@ -329,10 +329,12 @@ class CommonTextSelectionGestureDetectorBuilder
     @required Function showToolbar,
     @required Function hideToolbar,
     @required Function onTap,
+    @required GestureTapUpCallback onTapUp,
     @required BuildContext context,
     @required Function requestKeyboard,
   })  : _hideToolbar = hideToolbar,
         _onTap = onTap,
+        _onTapUp = onTapUp,
         _context = context,
         _requestKeyboard = requestKeyboard,
         super(delegate: delegate, showToolbar: showToolbar);
@@ -340,6 +342,7 @@ class CommonTextSelectionGestureDetectorBuilder
   final Function _hideToolbar;
 
   final Function _onTap;
+  final Function _onTapUp;
 
   final BuildContext _context;
 
@@ -402,6 +405,7 @@ class CommonTextSelectionGestureDetectorBuilder
     }
     _requestKeyboard?.call();
     _onTap?.call();
+    _onTapUp?.call(details);
   }
 
   @override
