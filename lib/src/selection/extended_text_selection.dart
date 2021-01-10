@@ -405,6 +405,8 @@ class CommonTextSelectionGestureDetectorBuilder
     }
     _requestKeyboard?.call();
     _onTap?.call();
+    
+    if (!renderEditable.hasFocus)
     _onTapUp?.call(details);
   }
 
